@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q3_TransposeMatrix_2DArrays {
+public class TransposeMatrix {
     public static void main(String args[]){
         int nums[][] = {
                 {1,2,3},
