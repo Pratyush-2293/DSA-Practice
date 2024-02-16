@@ -1,0 +1,41 @@
+public void segregateElements(int arr[], int n)
+    {
+        // Your code goes here
+        int pCount = 0;
+        int nCount = 0;
+        for(int i=0;i<n;i++){
+            if(arr[i]>=0){
+                pCount++;
+            }else{
+                nCount++;
+            }
+        }
+
+        int pArray[] = new int[pCount];
+        int nArray[] = new int[nCount];
+        int pIndex = 0;
+        int nIndex = 0;
+
+        for(int i=0;i<n;i++){
+            if(arr[i]>=0){
+                pArray[pIndex] = arr[i];
+                pIndex++;
+            } else{
+                nArray[nIndex] = arr[i];
+                nIndex++;
+            }
+        }
+
+        // Writing positives to main array
+        int mIndex = 0;
+        for(int i=0;i<pArray.length;i++){
+            arr[mIndex] = pArray[i];
+            mIndex++;
+        }
+
+        // Writing negatives to main array
+        for(int i=0;i<nArray.length;i++){
+            arr[mIndex] = nArray[i];
+            mIndex++;
+        }
+    }

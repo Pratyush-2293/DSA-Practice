@@ -1,0 +1,15 @@
+public static int doUnion(int arr1[], int n, int arr2[], int m) 
+    {
+        //Your code here
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int i = 0;i<n;i++){
+            set.add(arr1[i]);
+        }
+
+        for(int i=0;i<m;i++){
+            set.add(arr2[i]);
+        }
+
+        return set.size();
+    }
