@@ -1,0 +1,45 @@
+public static int doUnion(int arr1[], int n, int arr2[], int m) 
+    {
+        //Your code here
+        int p1 = 0;
+        int p2 = 0;
+        List<Integer> list = new ArrayList<>();
+
+        while(p1<n || p2<m){
+            // Check Duplicates
+            while(p1>0 && p1<n && arr1[p1] == arr1[p1-1]){
+                p1++;
+            }
+            while(p2>0 && p2<m && arr2[p2] == arr2[p2-1]){
+                p2++;
+            }
+
+            // One Array Exhausted
+            if(p1>=n){
+                list.add(arr2[p2]);
+                p2++;
+                continue;
+            }
+
+            if(p2>=m){
+                list.add(arr1[p1]);
+                p1++;
+                continue;
+            }
+
+            // Comparison
+            if(arr1[p1]<arr2[p2]){
+                list.add(arr1[p1]);
+                p1++;
+            }else if(arr2[p2]<arr1[p1]){
+                list.add(arr2[p2]);
+                p2++;
+            }else{
+                list.add(arr1[p1]);
+                p1++;
+                p2++;
+            }
+        }
+
+        return list.toArray().length;
+    }
