@@ -1,0 +1,30 @@
+long maxSubarraySum(int arr[], int n){
+        
+        // Your code here
+        long currSum = 0;
+        long maxSum = Long.MIN_VALUE;
+        boolean allNegative = true;
+
+        for(int i=0;i<n;i++){
+            if(arr[i]>0){
+                allNegative = false;
+            }
+        }
+
+        if(allNegative == false){
+            for(int i=0;i<n;i++){
+                currSum = currSum + arr[i];
+                if(currSum<0){
+                    currSum = 0;
+                }
+                maxSum = Math.max(currSum, maxSum);
+            }
+            return maxSum;
+        } else{
+            long maxNegative = Long.MIN_VALUE;
+            for(int i=0;i<n;i++){
+                maxNegative = Math.max(arr[i], maxNegative);
+            }
+            return maxNegative;
+        }
+    }
