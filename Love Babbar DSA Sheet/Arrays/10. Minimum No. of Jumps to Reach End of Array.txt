@@ -1,0 +1,28 @@
+static int minJumps(int[] arr){
+        // your code here
+        int currMax = 0;
+        int maxRange = 0;
+        int jumps = 0;
+        int n = arr.length;
+        
+        if(n==1){
+            return 0;
+        }
+        
+        if(arr[0]==0){
+            return -1;
+        }
+        
+        for(int i=0;i<n;i++){
+            currMax = Math.max(currMax, i + arr[i]);
+            if(i == maxRange){
+                maxRange = currMax;
+                jumps++;
+                if(maxRange>=n-1){
+                    return jumps;
+                }
+            }
+        }
+        
+        return -1;
+    }
